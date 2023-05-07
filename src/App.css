@@ -1,38 +1,364 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@import 'react-notifications/lib/notifications.css';
+.login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  background-color: #f1f1f1;
 }
 
-.App-link {
-  color: #61dafb;
+.welcome-message {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #0069d9;
+}
+
+
+.connected-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.connected-header {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.connected-account {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.connected-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.connected-button:hover {
+  background-color: #0069d9;
+}
+
+.connected-contract-address {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+
+.candidates-table {
+  border-collapse: collapse;
+  width: 50%;
+  text-align:center;
+}
+
+.candidates-table th, .candidates-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.candidates-table th {
+  background-color: #f2f2f2;
+}
+
+input[type=number] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.add-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #0069d9;
+}
+
+.cancel-button {
+  background-color: #b2c1d1;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #e48423;
+}
+
+input[type=text] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 10px;
+  width: 96%;
+}
+textarea[type=text] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 10px;
+  width: 96%;
+  height: 270px;
+}
+
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal > .header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 90%;
+  text-align: center;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal > .actions {
+  margin: auto;
+}
+.modal > .actions {
+  width: 100%;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: 0px;
+  top: 0px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+}
+
+form {
+  display: inline;
+}
+
+.modal-options {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.modal-options > .header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 90%;
+  text-align: center;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-options > .actions {
+  margin: auto;
+}
+.modal-options > .actions {
+  width: 100%;
+  text-align: center;
+}
+.modal-options > .close {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: 0px;
+  top: 0px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+}
+
+.modal-options > .options {
+  overflow-y: scroll;
+  scrollbar-color: #6969dd
+}
+
+.option {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 10px;
+  width: 96%;
+  cursor: pointer;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.option:hover {
+  background-color: #fff;
+  transform: scale(1.02) perspective(1px);
+}
+
+.modal-voter {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.modal-voter > .header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 90%;
+  text-align: center;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-voter > .actions {
+  margin: auto;
+}
+.modal-voter > .actions {
+  width: 100%;
+  text-align: center;
+}
+.modal-voter > .close {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: 0px;
+  top: 0px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+}
+
+.modal-voter > .options {
+  overflow-y: scroll;
+  scrollbar-color: #6969dd
+}
+
+.voter {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 10px;
+  width: 96%;
+  cursor: pointer;
+  white-space: pre-wrap;
+}
+
+.voter:hover {
+  background-color: #fff;
+  transform: scale(1.02) perspective(1px);
+}
+
+.election {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 10px;
+  width: 96%;
+  cursor: pointer;
+  white-space: pre-wrap;
+}
+
+.election:hover {
+  background-color: #fff;
+  transform: scale(1.02) perspective(1px);
+}
+
+progress {
+  accent-color: deeppink;
+  margin-left: 10px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.vote-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  float: right;
+}
+
+.option-content {
+  display: inline;
 }
